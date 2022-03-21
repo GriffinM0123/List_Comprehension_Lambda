@@ -87,5 +87,5 @@ phrase = (
 )
 
 
-nums = [x for x in phrase if x.isdigit()]
+nums = [x for x in phrase.split() if x.isdigit()]
 print(nums)
