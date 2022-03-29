@@ -94,12 +94,15 @@ a number and a minimum length of 8 characters.
 HINT: Python function 'any' may be useful)
 """
 
-sg1 = "Help"
-sg2 = "help"
-sg3 = "ANT"
-sg4 = "aNt"
-check = lambda x: (x.isupper() == 0, sg1)
-print(check)
+password = ['Griffinswords2']
+example = input(' Enter a passsword: ')
+
+tests = [lambda x: any(x.isupper() for x in example), lambda x: any(x.islower() for x in example), lambda x: any(x.isdigit() for x in example), lambda x: len(example) >= 8]
+
+if all(test(example) for test in tests):
+    print("Valid")
+else:
+    print("Invalid")
 
 
 """ 7)
@@ -111,3 +114,8 @@ original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sci
 # Expected Result:
 # [('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]
 """
+original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
+
+original_scores.sort(key=lambda a: a[1])
+
+print(original_scores)
